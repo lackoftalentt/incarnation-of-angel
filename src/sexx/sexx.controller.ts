@@ -21,7 +21,6 @@ export class SexxController {
     console.log('GEMINI_API_KEY length:', GEMINI_API_KEY?.length);
 
     const { question, options } = body;
-
     if (!question || !options || !options.length) {
       return { correctText: null };
     }

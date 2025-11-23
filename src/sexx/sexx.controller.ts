@@ -1,6 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { Sexx } from './dto/sexx.dto';
-import fetch from 'node-fetch';
 
 interface GeminiResponse {
   candidates?: Array<{
@@ -18,6 +17,8 @@ export class SexxController {
   async solve(@Body() body: Sexx) {
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY!;
     const GEMINI_MODEL = 'gemini-2.0-flash';
+
+    console.log('GEMINI_API_KEY length:', GEMINI_API_KEY?.length);
 
     const { question, options } = body;
 
